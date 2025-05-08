@@ -30,3 +30,19 @@ let age = 5;
 
 console.log(location); //undefined: Can be used before declaration (but value is undefined)
 var location = 'D.C';
+
+// Reference Type Comparison
+
+const nums = [1, 2, 3];
+let nums1 = nums;
+console.log(nums == nums1); //true
+console.log(nums === nums1); //true
+
+const nums2 = [1, 2, 3];
+console.log(nums == nums2); //false
+console.log(nums === nums2); //false
+
+// Primitive type Comparison
+const str = '1';
+console.log(str == 1); // true; Coercion
+console.log(str === 1); // false; Strict Compare: Different Types!
