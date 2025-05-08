@@ -1,4 +1,5 @@
 //Reference Type VS Primitive type
+
 const a = 1;
 // a = 2; error: cannot re assign values to const variable
 console.log(a);
@@ -19,3 +20,13 @@ arr1[0] = 1000;
 
 console.log(arr);
 console.log(arr1);
+
+// Hoisting
+let name;
+console.log(name); //undefined: declared, no value assigned;
+
+// console.log(age); //Error: Cannot access 'age' before initialization
+let age = 5;
+
+console.log(location); //undefined: Can be used before declaration (but value is undefined)
+var location = 'D.C';
