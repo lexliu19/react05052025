@@ -28,3 +28,9 @@ function bar() {
 }
 console.log(typeof bar); //function
 console.log(typeof bar()); //function
+
+const obj = { a: 1 };
+console.log(obj.b); //undefined
+
+console.log([1, 2, 3].forEach === [].forEach); //true; Shared method
+console.log(typeof [].forEach); //function
