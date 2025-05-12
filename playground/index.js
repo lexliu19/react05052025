@@ -46,3 +46,12 @@ console.log(nums === nums2); //false
 const str = '1';
 console.log(str == 1); // true; Coercion
 console.log(str === 1); // false; Strict Compare: Different Types!
+
+// tests
+const arr3 = [1, 2, 3];
+let arr4 = arr3;
+console.log(arr3 == arr4.push(4)); //false
+console.log(arr4.push(4)); //5
+
+console.log([] === []); //false
+console.log([] == []); //false
