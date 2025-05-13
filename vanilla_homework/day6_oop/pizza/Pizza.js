@@ -22,20 +22,38 @@ export const BASE_PRICE = {
 };
 
 export const TOPPINGS = {
-  p: { cost: 1.5, name: "pepperoni" },
-  g: { cost: 0.86, name: "green pepper" },
-  o: { cost: 0.5, name: "onion" },
-  bo: { cost: 0.2, name: "black olive" },
-  m: { cost: 0.82, name: "mushroom" },
-  c: { cost: 0.77, name: "cheese" },
+  p: { cost: 1.5, name: 'pepperoni' },
+  g: { cost: 0.86, name: 'green pepper' },
+  o: { cost: 0.5, name: 'onion' },
+  bo: { cost: 0.2, name: 'black olive' },
+  m: { cost: 0.82, name: 'mushroom' },
+  c: { cost: 0.77, name: 'cheese' },
 };
 
 export default class Pizza {
-  constructor(size, toppingCodes) {}
+  constructor(size, toppingCodes) {
+    this.size = size;
+    this.toppingCodes = toppingCodes;
+  }
 
-  getBaseCost() {}
+  getBaseCost() {
+    return BASE_PRICE[this.size] || 0;
+  }
 
-  getTotalCost() {}
+  getTotalCost() {
+    const toppingCost = this.toppingCodes.reduce((sum, code) => {
+      const topping = TOPPINGS[code];
+      return topping ? sum + topping.cost : sum;
+    }, 0);
 
-  getDescription() {}
+    return this.getBaseCost() + toppingCost;
+  }
+
+  getDescription() {
+    const toppingNames = this.toppingCodes
+      .map((code) => TOPPINGS[code]?.name)
+      .filter(Boolean)
+      .join(',');
+    return `${this.size} pizza with ${toppingNames}`;
+  }
 }

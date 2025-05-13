@@ -34,3 +34,31 @@ console.log(obj.b); //undefined
 
 console.log([1, 2, 3].forEach === [].forEach); //true; Shared method
 console.log(typeof [].forEach); //function
+
+// class Book {
+//   constructor(title, author) {
+//     this.title = title;
+//     this.author = author;
+//     this.getSummary = function () {
+//       console.log(`${title} by ${authur}`);
+//     };
+//   }
+// }
+// const book1 = new Book('book1', 'Jack'); ////created new instance of fn object
+// const book2 = new Book('book2', 'Jack'); //created new instance of fn object
+// console.log(book1.getSummary === book2.getSummary); //false
+
+//Recommended Practice
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+  //prototype method
+  getSummary() {
+    console.log(`Summary: ${this.title} written by ${this.author}`);
+  }
+}
+const book1 = new Book('book1', 'Jack'); ////created new instance of fn object
+const book2 = new Book('book2', 'Jack'); //created new instance of fn object
+book1.getSummary();
