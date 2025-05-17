@@ -49,16 +49,25 @@ console.log(typeof [].forEach); //function
 // console.log(book1.getSummary === book2.getSummary); //false
 
 //Recommended Practice
-class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
-  //prototype method
-  getSummary() {
-    console.log(`Summary: ${this.title} written by ${this.author}`);
-  }
-}
-const book1 = new Book('book1', 'Jack'); ////created new instance of fn object
-const book2 = new Book('book2', 'Jack'); //created new instance of fn object
-book1.getSummary();
+// class Book {
+//   constructor(title, author) {
+//     this.title = title;
+//     this.author = author;
+//   }
+//   //prototype method
+//   getSummary() {
+//     console.log(`Summary: ${this.title} written by ${this.author}`);
+//   }
+// }
+// const book1 = new Book('book1', 'Jack'); ////created new instance of fn object
+// const book2 = new Book('book2', 'Jack'); //created new instance of fn object
+// book1.getSummary();
+
+// const getSummaryCopy = book1.getSummary;
+// console.log(getSummaryCopy());
+
+Array.prototype.hello = 123;
+console.log([].hello);
+
+
+[1,2,3].
