@@ -46,3 +46,16 @@ Promise.any([p1, p2])
   .catch((err) => {
     console.error('All failed:', err);
   });
+
+const getDelayRandomNumber = (range, milliseconds) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const num = Math.floor(Math.random() * range) + 1;
+      resolve(num);
+    }, milliseconds);
+  });
+};
+
+getDelayRandomNumber(100, 2000).then((num) => {
+  console.log('Random number:', num);
+});
