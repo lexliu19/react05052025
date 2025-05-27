@@ -9,14 +9,23 @@
     it should render the student's information
 */
 
-import { Component } from "react";
+import { Component } from 'react';
 
 // implement a Student component here
 
 export interface StudentType {}
 
-export function StudentFn() {
-  return <div data-testid="student"></div>;
+export function StudentFn({ student }) {
+  return (
+    <div data-testid="student">
+      <div className="student-card-container">
+        <h2>{student.grade}</h2>
+        <div>
+          {student.name} - {student.age}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export class StudentClass extends Component {

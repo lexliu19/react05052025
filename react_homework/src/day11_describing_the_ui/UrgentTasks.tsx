@@ -1,7 +1,7 @@
 export interface TaskType {
   id: number;
   name: string;
-  priority: "normal" | "urgent";
+  priority: 'normal' | 'urgent';
 }
 
 // const exampleTasks: TaskType[] = [
