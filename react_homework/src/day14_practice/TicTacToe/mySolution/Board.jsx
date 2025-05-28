@@ -4,7 +4,7 @@ export default function Board({ squares, onSquareClick }) {
   const renderSquare = (i) => {
     return (
       <Square
-        className="row"
+        // className="row"
         key={i}
         value={squares[i]}
         onClick={() => onSquareClick(i)}
