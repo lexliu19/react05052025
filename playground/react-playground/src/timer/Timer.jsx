@@ -5,6 +5,8 @@ export default function Timer() {
   const [initialTime, setInitialTime] = useState(300);
   const [isRunning, setIsRunning] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     if (!isRunning || timeLeft <= 0) return;
@@ -20,6 +22,15 @@ export default function Timer() {
       setInitialTime(newTime); // 💡只更新一次
       return newTime;
     });
+  };
+
+  //TODO: change time to input when user clicks
+  handleTimeClick = () => {
+    setInputValue(formatTime(timeLeft));
+    setIsEditing(true);
+  };
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
   };
 
   const handleStart = () => {

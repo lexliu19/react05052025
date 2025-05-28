@@ -1,10 +1,11 @@
 import './App.css';
+import Games from './games/Games';
 import Timer from './timer/Timer';
 
 function App() {
   return (
     <div>
-      <Timer />
+      <Games />
     </div>
   );
 }

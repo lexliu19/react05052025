@@ -1,0 +1,26 @@
+.games-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.game-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.game-card {
+  width: 10rem;
+  height: 10rem;
+  background-color: #f3f3e7;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+button {
+  font-size: 1rem;
+  background-color: #deb887;
+}
