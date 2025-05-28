@@ -8,14 +8,23 @@
 .square {
   width: 40px;
   height: 40px;
-  color: #000;
+  color: #303030;
   background-color: #e2e2e2;
   font-size: 20px;
+  font-weight: bold;
   text-align: center;
   line-height: 40px;
   margin: 4px;
+  border-radius: 6px;
 }
 
 .status {
   color: #048e08;
+  font-size: 20px;
+  margin: 1rem;
+}
+.reset {
+  margin-top: 1rem;
+  background-color: #8787e6;
+  color: #fff;
 }

@@ -14,7 +14,6 @@ export default function Game() {
     : `Next Player: ${isXNext ? 'X' : 'O'}`;
 
   // let status;
-
   // if (winner) {
   //   status = `Winner: ${winner}`;
   // } else if (squares.every(Boolean)) {
@@ -42,7 +41,9 @@ export default function Game() {
       <h2>Tic-Tac-Toe</h2>
       <div className="status">{status}</div>
       <Board squares={squares} onSquareClick={handleSquareClick} />
-      <button onClick={handleReset}>Restart</button>
+      <button className="reset" onClick={handleReset}>
+        Restart
+      </button>
     </div>
   );
 }

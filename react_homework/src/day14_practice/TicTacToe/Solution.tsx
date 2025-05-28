@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import "./style.css";
+import React, { useEffect, useState } from 'react';
+import './style.css';
 
-type Player = "X" | "O";
+type Player = 'X' | 'O';
 enum Results {
-  X_WINS = "Winner: X",
-  O_WINS = "Winner: O",
-  DRAW = "Draw",
-  ON_GOING = "On Going",
+  X_WINS = 'Winner: X',
+  O_WINS = 'Winner: O',
+  DRAW = 'Draw',
+  ON_GOING = 'On Going',
 }
 interface CellType {
   id: number;
@@ -52,8 +52,8 @@ const calcResult = (board: CellType[]): Results => {
     }
   }
 
-  if (winner === "X") return Results.X_WINS;
-  if (winner === "O") return Results.O_WINS;
+  if (winner === 'X') return Results.X_WINS;
+  if (winner === 'O') return Results.O_WINS;
 
   const isGameOnGoing = board.some((cell) => cell.player === null);
 
@@ -62,7 +62,7 @@ const calcResult = (board: CellType[]): Results => {
 
 export default function Solution() {
   const [board, setBoard] = useState(initBoard);
-  const [currPlayer, setCurrPlayer] = useState<Player>("X");
+  const [currPlayer, setCurrPlayer] = useState<Player>('X');
 
   const [result, setResult] = useState<Results>(Results.ON_GOING);
 
@@ -91,7 +91,7 @@ export default function Solution() {
     setBoard(newBoard);
 
     // update the player
-    setCurrPlayer(currPlayer === "X" ? "O" : "X");
+    setCurrPlayer(currPlayer === 'X' ? 'O' : 'X');
   };
 
   const restart = () => {
