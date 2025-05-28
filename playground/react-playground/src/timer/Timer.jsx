@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import formatTime from './formatTime.js';
 export default function Timer() {
   const [timeLeft, setTimeLeft] = useState(300); //5 mins in seconds
+  const [initialTime, setInitialTime] = useState(300);
   const [isRunning, setIsRunning] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     if (!isRunning || timeLeft <= 0) return;
@@ -13,23 +15,47 @@ export default function Timer() {
   }, [isRunning, timeLeft]);
 
   const handleAdd = (sec) => {
-    setTimeLeft((prev) => prev + sec);
+    setTimeLeft((prev) => {
+      const newTime = prev + sec;
+      setInitialTime(newTime); // 💡只更新一次
+      return newTime;
+    });
+  };
+
+  const handleStart = () => {
+    setHasStarted(true);
+    setIsRunning(true);
+  };
+  const handleReset = () => {
+    setTimeLeft(initialTime);
+    setIsRunning(false);
+    setHasStarted(false);
   };
 
   return (
     <div>
       <h2>{formatTime(timeLeft)}</h2>
-      <div>
-        <button onClick={() => handleAdd(30)}>+0:30</button>
-        <button onClick={() => handleAdd(60)}>+1:00</button>
-        <button onClick={() => handleAdd(300)}>+5:00</button>
-      </div>
 
-      <div>
-        <button onClick={() => setIsRunning(!isRunning)}>
-          {isRunning ? 'Pause' : 'Start'}
-        </button>
-      </div>
+      {!hasStarted ? (
+        <div>
+          <div>
+            <button onClick={() => handleAdd(30)}>+0:30</button>
+            <button onClick={() => handleAdd(60)}>+1:00</button>
+            <button onClick={() => handleAdd(300)}>+5:00</button>
+          </div>
+
+          <div>
+            <button onClick={handleStart}>Start</button>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <button onClick={() => setIsRunning(!isRunning)}>
+            {isRunning ? 'Pause' : 'Resume'}
+          </button>
+          <button onClick={handleReset}>Reset</button>
+        </div>
+      )}
     </div>
   );
 }
