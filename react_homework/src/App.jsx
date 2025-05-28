@@ -5,11 +5,13 @@ import ReduxTodoSolution from './ReduxTodoSolution';
 import Day22Play from './day22_testing';
 import { StudentsListFn } from './day11_describing_the_ui/StudentsList';
 import TodoListApp from './day12_interactivity/TodoListApp';
+import SelectAllForm from './day14_practice/SelectAllForm';
+import ShoppingCart from './day14_practice/ShoppingCart';
 
 function App() {
   return (
     <>
-      <TodoListApp />
+      <ShoppingCart />
     </>
   );
 }
